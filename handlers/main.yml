@@ -7,4 +7,4 @@
     executable: /bin/bash
   register: conda_install
   become: true
-  become_user: '{{ conda_installation_os_user }}'
+  become_user: '{{ installation_os_user }}'

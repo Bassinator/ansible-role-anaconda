@@ -7,9 +7,9 @@
   get_url:
     url: "{{ conda_download_url }}"
     dest: "/tmp/{{ conda_installer }}"
-    mode: 0755
+    mode: 0777
+    tmp_dest: /tmp
   become: true
-  become_user: '{{ conda_installation_os_user }}'
   notify: "Install Conda"
 
 # - name: Add Anaconda to the system path in /etc/profile

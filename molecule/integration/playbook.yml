@@ -2,5 +2,13 @@
 - name: Converge
   hosts: all
   become: true
+  vars:
+    conda_build: 2018.12
+    conda_package: 'Anaconda{{ conda_python }}-{{ conda_build }}'
+    conda_arch: "Linux-x86"  # "Linux-x86 = 32 bit "Linux-x86_64" = 64 bit
+    conda_installer: "{{ conda_package }}-{{ conda_arch }}.sh"
+    conda_download_url: "https://repo.anaconda.com/archive/\
+      {{ conda_installer }}"
+    conda_install_path: ~/
   roles:
     - role: bassinator.conda
