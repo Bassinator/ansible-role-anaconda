@@ -1,0 +1,21 @@
+---
+- name: Install required packages
+  package:
+    name: bzip2
+
+- name: Download Conda
+  get_url:
+    url: "{{ conda_download_url }}"
+    dest: "/tmp/{{ conda_installer }}"
+    mode: 0755
+  become: true
+  become_user: '{{ conda_installation_os_user }}'
+  notify: "Install Conda"
+
+# - name: Add Anaconda to the system path in /etc/profile
+#   lineinfile:
+#     path: /etc/profile
+#     regexp: ^export PATH=.*anaconda.*
+#     line: "export PATH=\"{{ conda_install_path }}
+#   anaconda{{ anaconda_python_version }}/bin:$PATH\""
+#     backup: true

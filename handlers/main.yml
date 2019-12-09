@@ -1,0 +1,10 @@
+---
+- name: Install Conda
+  shell: |
+    /tmp/{{ conda_installer }} -b -p \
+    {{ conda_install_path }}conda{{ conda_python }}
+  args:
+    executable: /bin/bash
+  register: conda_install
+  become: true
+  become_user: '{{ conda_installation_os_user }}'
