@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: bassinator.conda
+  role_name: conda
   author: Bassinator
   description: A role to install anaconda or miniconda
   company: einfach IT
