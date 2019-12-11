@@ -18,3 +18,5 @@
     state: present
     line: |-
       export PATH=$PATH:{{ conda_install_path }}conda{{ conda_python }}/bin
+  become: true
+  become_user: '{{ installation_os_user }}'
