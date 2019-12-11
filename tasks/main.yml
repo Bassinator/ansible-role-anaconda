@@ -12,10 +12,9 @@
   become: true
   notify: "Install Conda"
 
-# - name: Add Anaconda to the system path in /etc/profile
-#   lineinfile:
-#     path: /etc/profile
-#     regexp: ^export PATH=.*anaconda.*
-#     line: "export PATH=\"{{ conda_install_path }}
-#   anaconda{{ anaconda_python_version }}/bin:$PATH\""
-#     backup: true
+- name: Add conda bin dir to system-wide $PATH.
+  lineinfile:
+    dest: ~/.profile
+    state: present
+    line: |-
+      export PATH=$PATH:{{ conda_install_path }}conda{{ conda_python }}/bin

@@ -2,5 +2,7 @@
 - name: Converge
   hosts: all
   become: true
+  vars:
+    installation_os_user: root
   roles:
     - role: bassinator.conda
